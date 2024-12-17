@@ -1,0 +1,604 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The TelemetryQw stack matches the snapshot 1`] = `
+{
+  "Metadata": {
+    "gu:cdk:constructs": [],
+    "gu:cdk:version": "TEST",
+  },
+  "Outputs": {
+    "indexstorebucketname": {
+      "Export": {
+        "Name": "quickwit-index-store-bucket-name",
+      },
+      "Value": {
+        "Ref": "QuickwitServiceTelemetryIndexStore65741B8E",
+      },
+    },
+  },
+  "Parameters": {
+    "AssetParameters900ca14f4c038df3d743d3efa4cbcffd783698658cd5ce14a56a218291178bbfArtifactHashCBC9AA0D": {
+      "Description": "Artifact hash for asset "900ca14f4c038df3d743d3efa4cbcffd783698658cd5ce14a56a218291178bbf"",
+      "Type": "String",
+    },
+    "AssetParameters900ca14f4c038df3d743d3efa4cbcffd783698658cd5ce14a56a218291178bbfS3Bucket865B2074": {
+      "Description": "S3 bucket for asset "900ca14f4c038df3d743d3efa4cbcffd783698658cd5ce14a56a218291178bbf"",
+      "Type": "String",
+    },
+    "AssetParameters900ca14f4c038df3d743d3efa4cbcffd783698658cd5ce14a56a218291178bbfS3VersionKey92EBF043": {
+      "Description": "S3 key for asset version "900ca14f4c038df3d743d3efa4cbcffd783698658cd5ce14a56a218291178bbf"",
+      "Type": "String",
+    },
+    "AssetParameters9a3136e3d7749f57d84fd69f6948beda1f42b598107e86400acdd9cf839e8de8ArtifactHash0F9CA9AC": {
+      "Description": "Artifact hash for asset "9a3136e3d7749f57d84fd69f6948beda1f42b598107e86400acdd9cf839e8de8"",
+      "Type": "String",
+    },
+    "AssetParameters9a3136e3d7749f57d84fd69f6948beda1f42b598107e86400acdd9cf839e8de8S3Bucket045E848C": {
+      "Description": "S3 bucket for asset "9a3136e3d7749f57d84fd69f6948beda1f42b598107e86400acdd9cf839e8de8"",
+      "Type": "String",
+    },
+    "AssetParameters9a3136e3d7749f57d84fd69f6948beda1f42b598107e86400acdd9cf839e8de8S3VersionKeyAF67FDA4": {
+      "Description": "S3 key for asset version "9a3136e3d7749f57d84fd69f6948beda1f42b598107e86400acdd9cf839e8de8"",
+      "Type": "String",
+    },
+    "AssetParametersd1ddb0a31b247f893042f3c6697a6fed0b4696559823ecc8dd9d747cd13dde26ArtifactHash0938F5BF": {
+      "Description": "Artifact hash for asset "d1ddb0a31b247f893042f3c6697a6fed0b4696559823ecc8dd9d747cd13dde26"",
+      "Type": "String",
+    },
+    "AssetParametersd1ddb0a31b247f893042f3c6697a6fed0b4696559823ecc8dd9d747cd13dde26S3Bucket5FDE4741": {
+      "Description": "S3 bucket for asset "d1ddb0a31b247f893042f3c6697a6fed0b4696559823ecc8dd9d747cd13dde26"",
+      "Type": "String",
+    },
+    "AssetParametersd1ddb0a31b247f893042f3c6697a6fed0b4696559823ecc8dd9d747cd13dde26S3VersionKeyDAD9188C": {
+      "Description": "S3 key for asset version "d1ddb0a31b247f893042f3c6697a6fed0b4696559823ecc8dd9d747cd13dde26"",
+      "Type": "String",
+    },
+  },
+  "Resources": {
+    "QuickwitIndexerTelemetryIndexerLambdaAA80AA04": {
+      "DependsOn": [
+        "QuickwitIndexerTelemetryIndexerLambdaServiceRoleDefaultPolicy382FDC84",
+        "QuickwitIndexerTelemetryIndexerLambdaServiceRole9217994B",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParametersd1ddb0a31b247f893042f3c6697a6fed0b4696559823ecc8dd9d747cd13dde26S3Bucket5FDE4741",
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParametersd1ddb0a31b247f893042f3c6697a6fed0b4696559823ecc8dd9d747cd13dde26S3VersionKeyDAD9188C",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParametersd1ddb0a31b247f893042f3c6697a6fed0b4696559823ecc8dd9d747cd13dde26S3VersionKeyDAD9188C",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": {
+          "Variables": {
+            "QW_LAMBDA_INDEX_BUCKET": {
+              "Ref": "QuickwitServiceTelemetryIndexStore65741B8E",
+            },
+            "QW_LAMBDA_INDEX_CONFIG_URI": {
+              "Fn::Join": [
+                "",
+                [
+                  "s3://",
+                  {
+                    "Ref": "AssetParameters9a3136e3d7749f57d84fd69f6948beda1f42b598107e86400acdd9cf839e8de8S3Bucket045E848C",
+                  },
+                  "/",
+                  {
+                    "Fn::Select": [
+                      0,
+                      {
+                        "Fn::Split": [
+                          "||",
+                          {
+                            "Ref": "AssetParameters9a3136e3d7749f57d84fd69f6948beda1f42b598107e86400acdd9cf839e8de8S3VersionKeyAF67FDA4",
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                  {
+                    "Fn::Select": [
+                      1,
+                      {
+                        "Fn::Split": [
+                          "||",
+                          {
+                            "Ref": "AssetParameters9a3136e3d7749f57d84fd69f6948beda1f42b598107e86400acdd9cf839e8de8S3VersionKeyAF67FDA4",
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                ],
+              ],
+            },
+            "QW_LAMBDA_INDEX_ID": "hdfs-logs",
+            "QW_LAMBDA_METASTORE_BUCKET": {
+              "Ref": "QuickwitServiceTelemetryIndexStore65741B8E",
+            },
+          },
+        },
+        "EphemeralStorage": {
+          "Size": 10240,
+        },
+        "FunctionName": "telemetry-indexer-lamdba",
+        "Handler": "N/A",
+        "MemorySize": 8000,
+        "ReservedConcurrentExecutions": 1,
+        "Role": {
+          "Fn::GetAtt": [
+            "QuickwitIndexerTelemetryIndexerLambdaServiceRole9217994B",
+            "Arn",
+          ],
+        },
+        "Runtime": "provided.al2",
+        "Tags": [
+          {
+            "Key": "App",
+            "Value": "TelemetryQW",
+          },
+          {
+            "Key": "gu:cdk:version",
+            "Value": "TEST",
+          },
+          {
+            "Key": "Stack",
+            "Value": "telemetry",
+          },
+          {
+            "Key": "Stage",
+            "Value": "TEST",
+          },
+        ],
+        "Timeout": 900,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "QuickwitIndexerTelemetryIndexerLambdaServiceRole9217994B": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+        "Tags": [
+          {
+            "Key": "App",
+            "Value": "TelemetryQW",
+          },
+          {
+            "Key": "gu:cdk:version",
+            "Value": "TEST",
+          },
+          {
+            "Key": "Stack",
+            "Value": "telemetry",
+          },
+          {
+            "Key": "Stage",
+            "Value": "TEST",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "QuickwitIndexerTelemetryIndexerLambdaServiceRoleDefaultPolicy382FDC84": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:GetObject",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:aws:s3:::",
+                    {
+                      "Ref": "AssetParameters9a3136e3d7749f57d84fd69f6948beda1f42b598107e86400acdd9cf839e8de8S3Bucket045E848C",
+                    },
+                    "/",
+                    {
+                      "Fn::Select": [
+                        0,
+                        {
+                          "Fn::Split": [
+                            "||",
+                            {
+                              "Ref": "AssetParameters9a3136e3d7749f57d84fd69f6948beda1f42b598107e86400acdd9cf839e8de8S3VersionKeyAF67FDA4",
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      "Fn::Select": [
+                        1,
+                        {
+                          "Fn::Split": [
+                            "||",
+                            {
+                              "Ref": "AssetParameters9a3136e3d7749f57d84fd69f6948beda1f42b598107e86400acdd9cf839e8de8S3VersionKeyAF67FDA4",
+                            },
+                          ],
+                        },
+                      ],
+                    },
+                  ],
+                ],
+              },
+            },
+            {
+              "Action": "s3:GetObject",
+              "Effect": "Allow",
+              "Resource": "arn:aws:s3:::quickwit-datasets-public/*",
+            },
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+                "s3:DeleteObject*",
+                "s3:PutObject",
+                "s3:PutObjectLegalHold",
+                "s3:PutObjectRetention",
+                "s3:PutObjectTagging",
+                "s3:PutObjectVersionTagging",
+                "s3:Abort*",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "QuickwitServiceTelemetryIndexStore65741B8E",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "QuickwitServiceTelemetryIndexStore65741B8E",
+                          "Arn",
+                        ],
+                      },
+                      "/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "QuickwitIndexerTelemetryIndexerLambdaServiceRoleDefaultPolicy382FDC84",
+        "Roles": [
+          {
+            "Ref": "QuickwitIndexerTelemetryIndexerLambdaServiceRole9217994B",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "QuickwitSearcherFEE3088F": {
+      "DependsOn": [
+        "QuickwitSearcherServiceRoleDefaultPolicyC0D122AF",
+        "QuickwitSearcherServiceRoleDED74F91",
+      ],
+      "Properties": {
+        "Code": {
+          "S3Bucket": {
+            "Ref": "AssetParameters900ca14f4c038df3d743d3efa4cbcffd783698658cd5ce14a56a218291178bbfS3Bucket865B2074",
+          },
+          "S3Key": {
+            "Fn::Join": [
+              "",
+              [
+                {
+                  "Fn::Select": [
+                    0,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters900ca14f4c038df3d743d3efa4cbcffd783698658cd5ce14a56a218291178bbfS3VersionKey92EBF043",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  "Fn::Select": [
+                    1,
+                    {
+                      "Fn::Split": [
+                        "||",
+                        {
+                          "Ref": "AssetParameters900ca14f4c038df3d743d3efa4cbcffd783698658cd5ce14a56a218291178bbfS3VersionKey92EBF043",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": {
+          "Variables": {
+            "QW_LAMBDA_INDEX_BUCKET": {
+              "Ref": "QuickwitServiceTelemetryIndexStore65741B8E",
+            },
+            "QW_LAMBDA_INDEX_ID": "hdfs-logs",
+            "QW_LAMBDA_METASTORE_BUCKET": {
+              "Ref": "QuickwitServiceTelemetryIndexStore65741B8E",
+            },
+          },
+        },
+        "EphemeralStorage": {
+          "Size": 10240,
+        },
+        "FunctionName": "telemetry-searcher-lamdba",
+        "Handler": "N/A",
+        "MemorySize": 3008,
+        "ReservedConcurrentExecutions": 1,
+        "Role": {
+          "Fn::GetAtt": [
+            "QuickwitSearcherServiceRoleDED74F91",
+            "Arn",
+          ],
+        },
+        "Runtime": "provided.al2",
+        "Tags": [
+          {
+            "Key": "App",
+            "Value": "TelemetryQW",
+          },
+          {
+            "Key": "gu:cdk:version",
+            "Value": "TEST",
+          },
+          {
+            "Key": "Stack",
+            "Value": "telemetry",
+          },
+          {
+            "Key": "Stage",
+            "Value": "TEST",
+          },
+        ],
+        "Timeout": 30,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "QuickwitSearcherServiceRoleDED74F91": {
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": [
+          {
+            "Fn::Join": [
+              "",
+              [
+                "arn:",
+                {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+        "Tags": [
+          {
+            "Key": "App",
+            "Value": "TelemetryQW",
+          },
+          {
+            "Key": "gu:cdk:version",
+            "Value": "TEST",
+          },
+          {
+            "Key": "Stack",
+            "Value": "telemetry",
+          },
+          {
+            "Key": "Stage",
+            "Value": "TEST",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "QuickwitSearcherServiceRoleDefaultPolicyC0D122AF": {
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*",
+                "s3:DeleteObject*",
+                "s3:PutObject",
+                "s3:PutObjectLegalHold",
+                "s3:PutObjectRetention",
+                "s3:PutObjectTagging",
+                "s3:PutObjectVersionTagging",
+                "s3:Abort*",
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "QuickwitServiceTelemetryIndexStore65741B8E",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "QuickwitServiceTelemetryIndexStore65741B8E",
+                          "Arn",
+                        ],
+                      },
+                      "/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "QuickwitSearcherServiceRoleDefaultPolicyC0D122AF",
+        "Roles": [
+          {
+            "Ref": "QuickwitSearcherServiceRoleDED74F91",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "QuickwitServiceTelemetryIndexStore65741B8E": {
+      "DeletionPolicy": "Delete",
+      "Properties": {
+        "BucketName": "telemetry-index-store",
+        "Tags": [
+          {
+            "Key": "App",
+            "Value": "TelemetryQW",
+          },
+          {
+            "Key": "gu:cdk:version",
+            "Value": "TEST",
+          },
+          {
+            "Key": "Stack",
+            "Value": "telemetry",
+          },
+          {
+            "Key": "Stage",
+            "Value": "TEST",
+          },
+        ],
+      },
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "QuickwitServiceTelemetryIndexStorePolicy198A93C4": {
+      "Properties": {
+        "Bucket": {
+          "Ref": "QuickwitServiceTelemetryIndexStore65741B8E",
+        },
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "s3:*",
+              "Condition": {
+                "Bool": {
+                  "aws:SecureTransport": "false",
+                },
+              },
+              "Effect": "Deny",
+              "Principal": {
+                "AWS": "*",
+              },
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "QuickwitServiceTelemetryIndexStore65741B8E",
+                    "Arn",
+                  ],
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "QuickwitServiceTelemetryIndexStore65741B8E",
+                          "Arn",
+                        ],
+                      },
+                      "/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::S3::BucketPolicy",
+    },
+  },
+}
+`;
